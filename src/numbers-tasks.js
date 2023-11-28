@@ -18,8 +18,16 @@
  *   5, 10 => 50
  *   5, 5  => 25
  */
-function getRectangleArea(/* width, height */) {
-  throw new Error('Not implemented');
+function getRectangleArea(width, height) {
+  if (!Number.isFinite(width) || !Number.isFinite(height)) {
+    return 0;
+  }
+
+  if (width < 0 || height < 0) {
+    return 0;
+  }
+
+  return width * height;
 }
 
 /**
