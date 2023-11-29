@@ -66,8 +66,13 @@ function getCircleCircumference(radius) {
  *  10, 0  => 5
  *  -3, 3  => 0
  */
-function getAverage(/* value1, value2 */) {
-  throw new Error('Not implemented');
+function getAverage(value1, value2) {
+  if (!Number.isFinite(value1) || !Number.isFinite(value2)) {
+    throw new Error(`Given not a number values`);
+  }
+
+  // (a + b) / 2 === a / 2 + b / 2;
+  return value1 / 2 + value2 / 2;
 }
 
 /**
