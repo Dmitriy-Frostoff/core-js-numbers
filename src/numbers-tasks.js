@@ -330,8 +330,19 @@ function getFibonacciNumber(/* index */) {
  *   10 => 55 // (1+2+3+...+10)
  *   1  => 1
  */
-function getSumToN(/* n */) {
-  throw new Error('Not implemented');
+function getSumToN(n) {
+  if (!n) {
+    return n;
+  }
+
+  if (!Number.isFinite(n)) {
+    throw new Error('Not a Finite value was given!');
+  }
+
+  return new Array(n)
+    .fill(1)
+    .map((num, index) => num + index)
+    .reduce((sum, num) => sum + num, 0);
 }
 
 /**
