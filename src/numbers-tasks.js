@@ -330,12 +330,10 @@ function getFibonacciNumber(index) {
 
       zeroToIndexFibonacciNumbersArr.push(nextFibonacciNumber);
     }
-
     return zeroToIndexFibonacciNumbersArr;
   }
 
   const arrOfFibonacciNumsToIndex = getFibonacciNumbersArr(index);
-
   return arrOfFibonacciNumsToIndex[index];
 }
 
@@ -376,8 +374,20 @@ function getSumToN(n) {
  *   202 => 4  // (2+0+2)
  *   5   => 5  // 5
  */
-function getSumOfDigits(/* num */) {
-  throw new Error('Not implemented');
+function getSumOfDigits(num) {
+  if (!Number.isFinite(num)) {
+    throw new Error('Number is not Finite!');
+  }
+
+  if (Math.abs(num) < 10) {
+    return num;
+  }
+
+  return Number(
+    String(Math.abs(num))
+      .split('')
+      .reduce((sum, stringNum) => sum + +stringNum, 0)
+  );
 }
 
 /**
