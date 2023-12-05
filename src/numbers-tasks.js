@@ -745,8 +745,16 @@ function getHypotenuse(a, b) {
  * 10 => 5
  * 15 => 8
  */
-function getCountOfOddNumbers(/* number */) {
-  throw new Error('Not implemented');
+function getCountOfOddNumbers(number) {
+  if (!Number.isFinite(number)) {
+    throw new Error('Not a finite number was given!');
+  }
+
+  // I solved this kata at codewars earliar)))
+  // the another one way is to create array from 1 to number
+  // and filter nums => nums % 2 !== 0
+  // and get length of the array
+  return Math.round(Math.abs(number) / 2);
 }
 
 module.exports = {
