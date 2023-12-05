@@ -315,8 +315,28 @@ function getCube(num) {
  *   3  => 2
  *   10 => 55
  */
-function getFibonacciNumber(/* index */) {
-  throw new Error('Not implemented');
+function getFibonacciNumber(index) {
+  function getFibonacciNumbersArr(finalElem) {
+    const zeroToIndexFibonacciNumbersArr = [0, 1];
+
+    // FibonacciNext = FibonacciPrev + FibonacciPrevOfPrev
+    // Fibonacci0 = 0
+    // Fibonacci2 = arr[2 - 1] + arr[2 - 2] = 1 + 0
+    // Fibonacci3 = arr[3 - 1] + arr[3 - 2] = 1 + 1
+    for (let i = 2; i <= finalElem; i += 1) {
+      const nextFibonacciNumber =
+        zeroToIndexFibonacciNumbersArr[i - 1] +
+        zeroToIndexFibonacciNumbersArr[i - 2];
+
+      zeroToIndexFibonacciNumbersArr.push(nextFibonacciNumber);
+    }
+
+    return zeroToIndexFibonacciNumbersArr;
+  }
+
+  const arrOfFibonacciNumsToIndex = getFibonacciNumbersArr(index);
+
+  return arrOfFibonacciNumsToIndex[index];
 }
 
 /**
