@@ -707,8 +707,11 @@ function getMaxNumber(firstNumber, secondNumber) {
  * -5, 0 => -5 | -4 | -3 | -2 | -1 | 0
  * -1, 1 => -1 | 0 | 1
  */
-function getRandomInteger(/* min, max */) {
-  throw new Error('Not implemented');
+function getRandomInteger(min, max) {
+  if (!Number.isInteger(min) || !Number.isInteger(max)) {
+    throw new Error('Not an ineger numbers were given');
+  }
+  return Math.floor(Math.random() * (max - min) + min);
 }
 
 /**
