@@ -594,6 +594,9 @@ function isSafeInteger(number) {
  * -5.1 => -6
  */
 function roundToSmallestInteger(number) {
+  if (!Number.isFinite(number)) {
+    throw new Error('number is not finite!');
+  }
   return Math.floor(number);
 }
 
@@ -608,6 +611,9 @@ function roundToSmallestInteger(number) {
  * -5.9 => -5
  */
 function roundToLargestInteger(number) {
+  if (!Number.isFinite(number)) {
+    throw new Error('number is not finite!');
+  }
   return Math.ceil(number);
 }
 
@@ -622,8 +628,11 @@ function roundToLargestInteger(number) {
  * 5.4  => 5
  * -5.5 => -5
  */
-function roundToNearestInteger(/* number */) {
-  throw new Error('Not implemented');
+function roundToNearestInteger(number) {
+  if (!Number.isFinite(number)) {
+    throw new Error('number is not finite!');
+  }
+  return Math.round(number);
 }
 
 /**
