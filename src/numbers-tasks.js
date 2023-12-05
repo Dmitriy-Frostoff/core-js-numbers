@@ -686,6 +686,12 @@ function getSumOfNumbers(x1, x2, x3) {
  * 0, 5   => 5
  */
 function getMaxNumber(firstNumber, secondNumber) {
+  if (
+    !Number.isSafeInteger(firstNumber) ||
+    !Number.isSafeInteger(secondNumber)
+  ) {
+    throw new Error('Numbers are greater than 2 ** 53');
+  }
   return Math.max(firstNumber, secondNumber);
 }
 
